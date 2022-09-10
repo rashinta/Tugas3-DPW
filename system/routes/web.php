@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('shop', function () {
-    return view('shop');
-});
+Route::get('Beranda', [HomeController::class, 'showBeranda']);
+Route::get('login', [AuthController::class, 'login']);
+
+Route::get('Produk', [ProdukController::class, 'index']);
+Route::get('Produk/create', [ProdukController::class, 'create']);
+Route::post('Produk', [ProdukController::class, 'store']);
+Route::get('produk/{produk}', [ProdukController::class, 'show']);
+Route::get('produk/{produk}/edit', [ProdukController::class, 'edit']);
+
 
 Route::get('Template', function () {
     return view('Template.base');
@@ -28,9 +37,7 @@ Route::get('Beranda', function () {
     return view('Beranda');
 });
 
-Route::get('Produk', function () {
-    return view('Produk');
-});
+
 
 Route::get('login', function () {
     return view('login');
