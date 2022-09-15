@@ -12,6 +12,7 @@
                     <div class="card-body">
                          <form action="{{url('Produk')}}" method="post">
                             @csrf
+                            @method("post")
                             <div class="form-grup">
                                 <label for="" class="control-label">Nama</label>
                                 <input type="text" class="form-control" name="nama" value="{{$produk->nama}}">

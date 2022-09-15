@@ -24,11 +24,24 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>
-                                    <a href="{{url('produk', $Produk->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
-                                    <a href="{{url('produk', $Produk->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                        <div class="btn-group">
+                                            <a href="{{url('produk', $Produk->id)}}" class="btn btn-dark"><i class="fa fa-info"></i></a>
+                                            <a href="{{url('produk', $Produk->id)}}/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                            @include('Template.utils.delete', ['url' => url('produk', $Produk->id)])
+                                        </div>
                                     </td>
                                     <td>{{$Produk->nama}}</td>
                                     <td>{{$Produk->harga}}</td>
+                                    <td>{{$Produk->stok}}</td>
+
                                 </tr>
                                 @endforeach
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

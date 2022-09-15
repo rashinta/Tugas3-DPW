@@ -18,7 +18,7 @@ class ProdukController extends Controller{
         $Produk->Harga = request('Harga');
         $Produk->Stok = request('Stok');
         $Produk->save();
-        return redirect('Produk');
+        return redirect('Produk')->with('success', 'Data Berhasil Ditambahkan');
     }
     function show($produk){
         $data['produk'] = Produk::find($produk);
@@ -29,10 +29,23 @@ class ProdukController extends Controller{
         $data['produk'] =  $produk;
         return view('produk.edit', $data);
     }
-    function update(){
+    function update(Produk $produk){
+        $produk->nama = request('nama');
+        $produk->harga = request('harga');
+        $produk->berat = request('berat');
+        $produk->stok = request('stok');
+        $produk->deskripsi = request('deskripsi');
+        $produk->save();
+
+        return redirect('produk')->with('success', 'Data Berhasil Diedit');
+
+        
     
     }
-    function destroy(){
+    function destroy(Produk $produk){
+        $produk->delete();
+
+        return redirect('produk');
        
 
     }
