@@ -26,13 +26,13 @@
                             <div class="col-md-3">
                                 <div class="form-grup">
                                         <label for="" class="control-label">Harga</label>
-                                        <input type="text" class="form-control" name="Harga" value="{{$produk->Harga}}">
+                                        <input type="text" class="form-control" name="Harga" value="{{$produk->Harga}}" value="{{$produk->harga}}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-grup">
                                         <label for="" class="control-label">Stok</label>
-                                        <input type="text" class="form-control" name="Stok">
+                                        <input type="text" class="form-control" name="Stok" value="{{$produk->Stok}}">
                                     </div>
                                 </div>
                             </div>
